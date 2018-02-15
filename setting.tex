@@ -1,0 +1,45 @@
+\linespread{1.6}%行间距设置
+\numberwithin{equation}{section}%公式按照章节标号
+\renewcommand\thefigure{\thesection.\arabic{figure}}%图片按章节标号
+\makeatletter
+\@addtoreset{figure}{section}
+\renewcommand{\figurename}{图}               % 对图表中的Fig进行中文翻译变为图
+\renewcommand{\contentsname}{目录}           % 对Contents进行汉化为目录
+\renewcommand\listfigurename{插\ 图\ 目\ 录} % 对List of Figures进行汉化为插图目录
+\renewcommand\listtablename{表\ 格\ 目\ 录}  % 对List of Tables进行汉化表格目录
+\setcounter{tocdepth}{2}%目录章节深度设置
+%\setlength{\parskip}{0.5\baselineskip}% 设置空行换行后，上下两段文字间距
+%\titlespacing*{section}{0pt}{9pt}{0pt}% 设置标题与段落间距
+%=================================边框样式设置===================================
+\lstset{
+    %行号
+    numbers=left,
+    %背景框
+    framexleftmargin=10mm,
+    frame=none,
+    %背景色
+    %backgroundcolor=\color[rgb]{1,1,0.76},
+    backgroundcolor=\color[RGB]{245,245,244},
+    %样式
+    keywordstyle=\bf\color{blue},
+    identifierstyle=\bf,
+    numberstyle=\color[RGB]{0,192,192},
+    commentstyle=\it\color[RGB]{0,96,96},
+    stringstyle=\rmfamily\slshape\color[RGB]{128,0,0},
+    %显示空格
+    showstringspaces=false
+ }
+%=================================================================================
+%===============================页眉页脚设置================================
+\fancypagestyle{plain}{
+\fancyhead[RE]{\leftmark} % 在偶数页的右侧显示章名
+
+\fancyhead[LO]{\rightmark} % 在奇数页的左侧显示小节名
+\fancyhead[LE,RO]{~\thepage~} % 在偶数页的左侧，奇数页的右侧显示页码
+% 设置页脚：在每页的右下脚以斜体显示书名
+\fancyfoot[RO,RE]{\it \text{右下角内容}} %右下角增加\text{}中的内容
+\renewcommand{\headrulewidth}{0.7pt} % 页眉与正文之间的水平线粗细
+\renewcommand{\footrulewidth}{0pt}
+\renewcommand\headrule{\hrule width \hsize height 2pt \kern 2pt \hrule width \hsize height 0.4pt}%页眉上双线
+}
+

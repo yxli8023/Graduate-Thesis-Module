@@ -1,0 +1,59 @@
+%A4纸张,ctexart为文章类型，改格式支持中文
+\documentclass[a4paper]{ctexart}
+%宏包导入
+\input{package}
+%论文中所要用到图片的路径（建议用文件夹存储）
+\graphicspath{{C:/Users/Administrator/Desktop/Thesis_model/picture/}}
+%文章整体格式与布局设置
+\input{setting}
+%=================================正文
+\begin{document}
+%作者信息与论文信息
+\clearpage
+\author{yxli}
+\title{毕业论文模板}
+\date{\today}
+\maketitle
+\newpage
+%\includepdf可用来在需要的位置插入一张已经做好的pdf
+%可以在这里加入封面
+\includepdf{cover/cover.pdf}
+
+%======================页码设置
+% empty - 没有页眉和页脚
+% plain - 没有页眉，页脚包含一个居中的页码
+% headings - 没有页脚，页眉包含章/节或者字节的名字和页码
+% myheadings - 没有页脚，页眉包含有页码
+\pagestyle{plain}
+\setcounter{page}{1}%当前页为第一页
+\pagenumbering{Roman}
+% arabic - 阿拉伯数字
+% roman - 小写的罗马数字
+% Roman - 大写的罗马数字
+% alph - 小写的字符形式
+% Alph -大写的字符形式
+%======================================================================
+\makeatother%保证生成目录
+%\addcontentsline{toc}{chapter}{\contentsname}
+\tableofcontents%增加章节目录
+
+\newpage%另起一页
+\listoftables%增加表格目录
+
+\newpage
+\listoffigures%增加图片目录
+%==============================中文摘要==================
+\clearpage%清除该页中的格式设置
+\input{abstract_zh}
+%==============================英文摘要==================
+\clearpage
+\input{abstract_en}
+%===============================================================
+%\clearpage
+\newpage
+\input{section1}
+ \newpage
+\addcontentsline{toc}{section}{参考文献} %向目录中添加条目，以章的名义
+\bibliography{reference_article}%加入参考文献
+\bibliographystyle{IEEEtran}
+\end{document}
